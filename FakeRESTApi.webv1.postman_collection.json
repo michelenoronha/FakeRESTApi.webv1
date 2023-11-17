@@ -1,0 +1,1455 @@
+{
+	"info": {
+		"_postman_id": "18c0ef7d-deb7-4d6d-b059-fbeee2caec46",
+		"name": "FakeRESTApi.webv1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25154389"
+	},
+	"item": [
+		{
+			"name": "ACTIVITIES",
+			"item": [
+				{
+					"name": "ALL Validar Contrato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonObject = xml2Json(responseBody);\r",
+									"var jsonObject = xml2Json(responseBody);\r",
+									"var jsonObject = xml2Json(responseBody);\r",
+									"\r",
+									"pm.test('validar contrato\")')\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"title\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"dueDate\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"completed\": {\r",
+									"          \"type\": \"boolean\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"title\",\r",
+									"        \"dueDate\",\r",
+									"        \"completed\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"    \"items\"; {\r",
+									"        \"type\"; \"boolean\"\r",
+									"    }\r",
+									"\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    \r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL  captura de id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validar o retorno de um array de objetos\", function()\r",
+									"{ pm.expect(pm.response.json()).to.be.an('array') });\r",
+									"\r",
+									"pm.test('validar contrato\")')\r",
+									";\r",
+									"pm.test('captura de id',function(){\r",
+									"var id = pm.response.json()\r",
+									"    console.log(id[0].id)\r",
+									"\r",
+									"   \r",
+									"pm.globals.set(\"actviesID\",id[0].ID);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criar uma atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validar o retorno de um objeto\", function()\r",
+									"{ pm.expect(pm.response.json()).to.be.an('object') });\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"title\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"dueDate\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"completed\": {\r",
+									"          \"type\": \"boolean\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"title\",\r",
+									"        \"dueDate\",\r",
+									"        \"completed\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"    \"items\"; {\r",
+									"        \"type\"; \"boolean\"\r",
+									"    }\r",
+									"\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"\r",
+									"    console.log(pm.response.json())\r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.false;});\r",
+									"\r",
+									"    pm.test('validar o id da criação da atividade', function(){\r",
+									"        pm.expect(pm.response.json().id).to.be.eql(35)\r",
+									"\r",
+									"        pm.globals.unset(\"actviesID\");\r",
+									"pm.globals.set(\"actviesID\", pm.response.json().id);\r",
+									"    })\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 35,\r\n  \"title\": \"testando a criação de uma nova activity\",\r\n  \"dueDate\": \"2023-10-02T20:22:18.754Z\",\r\n  \"completed\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validar o retorno de um objeto\", function()\r",
+									"{ pm.expect(pm.response.json()).to.be.an('object') });\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"title\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"dueDate\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"completed\": {\r",
+									"          \"type\": \"boolean\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"title\",\r",
+									"        \"dueDate\",\r",
+									"        \"completed\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"    \"items\"; {\r",
+									"        \"type\"; \"boolean\"\r",
+									"    }\r",
+									"\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"\r",
+									"    console.log(pm.response.json())\r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.eql(false);});\r",
+									"\r",
+									"    pm.test('validar a alteração do parametro completed', function()\r",
+									"    {pm.expect(pm.response.json().completed).to.be.eql(true);})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{actviesID}},\r\n  \"title\": \"testando a criação de uma nova activity\",\r\n  \"dueDate\": \"2023-10-02T20:22:18.754Z\",\r\n  \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities/{{actviesID}}",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Activities",
+								"{{actviesID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities/{{actviesID}}",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Activities",
+								"{{actviesID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTHORS",
+			"item": [
+				{
+					"name": "Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//Validar se o retorno é um array de objetos\r",
+									"pm.test(\"Validar o retorno de um array de objetos\", function (){\r",
+									"    pm.expect(pm.response.json()).to.be.an('array')\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"idBook\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"firstName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"idBook\",\r",
+									"        \"firstName\",\r",
+									"        \"lastName\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"    \"items\"; {\r",
+									"        \"type\"; \"boolean\"\r",
+									"    }\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    \r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain; v=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"idBook\": 0,\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors"
+							],
+							"query": [
+								{
+									"key": "content-type",
+									"value": "content-type",
+									"description": "content-type",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"   \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain; v=1.0"
+							}
+						],
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								"1"
+							],
+							"query": [
+								{
+									"key": "content-type",
+									"value": "content-type",
+									"description": "content-type",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All captura de Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('captura de id', function(){\r",
+									"    var id = pm.response.json()\r",
+									"    console.log(id[0].id)\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain; v=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"idBook\": 0,\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books/1",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validar Contrato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"idBook\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"firstName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"idBook\",\r",
+									"        \"firstName\",\r",
+									"        \"lastName\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"    \"items\"; {\r",
+									"        \"type\"; \"boolean\"\r",
+									"    }\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    \r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criar uma atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validar o retorno de um objeto\", function()\r",
+									"{ pm.expect(pm.response.json()).to.be.an('object') });\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"idBook\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"firstName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"idBook\",\r",
+									"    \"firstName\",\r",
+									"    \"lastName\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"\r",
+									"    console.log(pm.response.json())\r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;});\r",
+									"\r",
+									"    pm.test('validar o id da criação da atividade', function(){\r",
+									"        pm.expect(pm.response.json().id).to.be.eql(0)\r",
+									"\r",
+									"        pm.globals.unset(\"actviesID\");\r",
+									"pm.globals.set(\"actviesID\", pm.response.json().id);\r",
+									"    })\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"idBook\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"bolean\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar uma atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validar o retorno de um objeto\", function()\r",
+									"{ pm.expect(pm.response.json()).to.be.an('object') });\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"idBook\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"firstName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"idBook\",\r",
+									"    \"firstName\",\r",
+									"    \"lastName\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"\r",
+									"    console.log(pm.response.json())\r",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;});\r",
+									"\r",
+									"    pm.test('validar o id da criação da atividade', function(){\r",
+									"        pm.expect(pm.response.json().id).to.be.eql(0)\r",
+									"\r",
+									"        pm.globals.unset(\"actviesID\");\r",
+									"pm.globals.set(\"actviesID\", pm.response.json().id);\r",
+									"    })\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"idBook\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"bolean\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/0",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizar atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/0",
+							"protocol": "https",
+							"host": [
+								"fakerestapi",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Authors",
+								"0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BOOKS",
+			"item": []
+		},
+		{
+			"name": "books ALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Validar se o retorno é um array de objetos\r",
+							"pm.test(\"Validar o retorno de um array de objetos\", function (){\r",
+							"    pm.expect(pm.response.json()).to.be.an('array')\r",
+							"});\r",
+							"\r",
+							"pm.test('captura de id'), function(){\r",
+							"   var id = pm.response.json() \r",
+							"   console.log(id[0].id)\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Validar se o retorno é um array de objetos\r",
+							"pm.test(\"Validar o retorno de um array de objetos\", function (){\r",
+							"    pm.expect(pm.response.json()).to.be.an('array')\r",
+							"});\r",
+							"\r",
+							"var schema = { \r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"array\",\r",
+							"  \"items\": [\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"id\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"title\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"description\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"pageCount\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"excerpt\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"publishDate\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"id\",\r",
+							"        \"title\",\r",
+							"        \"description\",\r",
+							"        \"pageCount\",\r",
+							"        \"excerpt\",\r",
+							"        \"publishDate\"\r",
+							"      ]\r",
+							"    }\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    \r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"\r",
+							"\r",
+							"    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All captura de id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Validar se o retorno é um array de objetos\r",
+							"pm.test(\"Validar o retorno de um array de objetos\", function (){\r",
+							"    pm.expect(pm.response.json()).to.be.an('array')\r",
+							"});\r",
+							"\r",
+							"var schema = { \r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"array\",\r",
+							"  \"items\": [\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"id\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"title\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"description\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"pageCount\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"excerpt\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"publishDate\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"id\",\r",
+							"        \"title\",\r",
+							"        \"description\",\r",
+							"        \"pageCount\",\r",
+							"        \"excerpt\",\r",
+							"        \"publishDate\"\r",
+							"      ]\r",
+							"    }\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    \r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"\r",
+							"\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test('captura de id'), function(){\r",
+							"   var id = pm.response.json() \r",
+							"   console.log(id[0].id)\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validar contrato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Validar se o retorno é um array de objetos\r",
+							"pm.test(\"Validar o retorno de um array de objetos\", function (){\r",
+							"    pm.expect(pm.response.json()).to.be.an('array')\r",
+							"});\r",
+							"\r",
+							"var schema = { \r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"array\",\r",
+							"  \"items\": [\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"id\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"title\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"description\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"pageCount\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"excerpt\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"publishDate\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"id\",\r",
+							"        \"title\",\r",
+							"        \"description\",\r",
+							"        \"pageCount\",\r",
+							"        \"excerpt\",\r",
+							"        \"publishDate\"\r",
+							"      ]\r",
+							"    }\r",
+							"  ]\r",
+							"}\r",
+							"  \r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    \r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"\r",
+							"\r",
+							"    \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test('captura de id'), function(){\r",
+							"   var id = pm.response.json() \r",
+							"   console.log(id[3].id)\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar atividade",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var schema = {\r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"title\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"description\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"pageCount\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"excerpt\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"publishDate\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"title\",\r",
+							"    \"description\",\r",
+							"    \"pageCount\",\r",
+							"    \"excerpt\",\r",
+							"    \"publishDate\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test('captura de id'), function(){\r",
+							"   var id = pm.response.json() \r",
+							"   console.log(id[0].id)\r",
+							"}\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pageCount\");\r",
+							"});\r",
+							"\r",
+							"pm.test('validar o id da criação da atividade', function(){\r",
+							"    pm.expect(pm.response.json().id).to.be.eql(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"title\": \"testando a criação de uma nova atividade\",\r\n  \"description\": \"string\",\r\n  \"pageCount\": 0,\r\n  \"excerpt\": \"string\",\r\n  \"publishDate\": \"2023-10-07T22:28:09.827Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizar atividade",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var schema = {\r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"title\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"description\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"pageCount\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"excerpt\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"publishDate\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"title\",\r",
+							"    \"description\",\r",
+							"    \"pageCount\",\r",
+							"    \"excerpt\",\r",
+							"    \"publishDate\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test('captura de id'), function(){\r",
+							"   var id = pm.response.json() \r",
+							"   console.log(id[0].id)\r",
+							"}\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pageCount\");\r",
+							"});\r",
+							"\r",
+							"pm.test('validar o id da criação da atividade', function(){\r",
+							"    pm.expect(pm.response.json().pageCount).to.be.eql(50);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"title\": \"testando a criação de uma nova atividade\",\r\n  \"description\": \"string\",\r\n  \"pageCount\": 50,\r\n  \"excerpt\": \"string\",\r\n  \"publishDate\": \"2023-10-07T22:28:09.827Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books/0",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizar atividade Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Books/0",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
